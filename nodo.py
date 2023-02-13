@@ -16,3 +16,5 @@ class Nodo():
     
     def set_siguiente(self, siguiente):
         self.siguiente = siguiente
+
+    print("hola mundo")
