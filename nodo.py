@@ -18,3 +18,4 @@ class Nodo():
         self.siguiente = siguiente
 
     print("hola mundo")
+    print('Hola mundo x2')
