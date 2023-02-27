@@ -19,3 +19,4 @@ class Celda():
         self.fila = fila 
         self.columna = columna
         self.codigo_organismo = codigo_organismo
+        
