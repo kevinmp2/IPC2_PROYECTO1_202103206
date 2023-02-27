@@ -1,7 +1,7 @@
 from nodo import Nodo
 
 class Lista_simple:
-    
+
     def __init__(self):
         self.primero = None
         self.ultimo = None

@@ -35,6 +35,7 @@ for hijo in raiz:
                 nueva_celda = Celda(fila, columna, codigo_organismo)
                 nueva_muestra.lista_celdas_vivas.insertar(nueva_celda)
             lista_muestras.insertar(nueva_muestra)
+            
 
 lista_muestras.imprimir()
 
