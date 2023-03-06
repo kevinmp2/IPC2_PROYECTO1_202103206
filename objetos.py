@@ -19,4 +19,15 @@ class Celda():
         self.fila = fila 
         self.columna = columna
         self.codigo_organismo = codigo_organismo
+        self.color = None
+
+class Fila():
+    def __init__(self, numero):
+        self.numero = numero
+        self.columnas = Lista_simple()
+
+class Columna():
+    def __init__(self, numero):
+        self.numero = numero
+
         
