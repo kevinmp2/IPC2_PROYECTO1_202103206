@@ -22,19 +22,19 @@
             <columnas>10</columnas>
             <listadoCeldasVivas>
                 <celdaViva>
-                    <fila>5</fila>
+                    <fila>7</fila>
                     <columna>3</columna>
                     <codigoOrganismo>organismo1</codigoOrganismo>
                 </celdaViva>
                 <celdaViva>
-                    <fila>2</fila>
-                    <columna>1</columna>
-                    <codigoOrganismo>organismo2</codigoOrganismo>
+                    <fila>9</fila>
+                    <columna>0</columna>
+                    <codigoOrganismo>organismo1</codigoOrganismo>
                 </celdaViva>
                 <celdaViva>
-                    <fila>6</fila>
+                    <fila>9</fila>
                     <columna>9</columna>
-                    <codigoOrganismo>organismo3</codigoOrganismo>
+                    <codigoOrganismo>organismo1</codigoOrganismo>
                 </celdaViva>
             </listadoCeldasVivas>
         </muestra>
@@ -45,19 +45,19 @@
             <columnas>10</columnas>
             <listadoCeldasVivas>
                 <celdaViva>
-                    <fila>5</fila>
-                    <columna>3</columna>
-                    <codigoOrganismo>organismo1</codigoOrganismo>
-                </celdaViva>
-                <celdaViva>
-                    <fila>2</fila>
+                    <fila>1</fila>
                     <columna>1</columna>
                     <codigoOrganismo>organismo2</codigoOrganismo>
                 </celdaViva>
                 <celdaViva>
-                    <fila>6</fila>
-                    <columna>9</columna>
-                    <codigoOrganismo>organismo3</codigoOrganismo>
+                    <fila>2</fila>
+                    <columna>2</columna>
+                    <codigoOrganismo>organismo2</codigoOrganismo>
+                </celdaViva>
+                <celdaViva>
+                    <fila>3</fila>
+                    <columna>3</columna>
+                    <codigoOrganismo>organismo2</codigoOrganismo>
                 </celdaViva>
             </listadoCeldasVivas>
         </muestra>
