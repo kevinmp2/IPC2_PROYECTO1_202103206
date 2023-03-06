@@ -1,7 +1,7 @@
 from nodo import Nodo
+import random
 
 class Lista_simple:
-
     def __init__(self):
         self.primero = None
         self.ultimo = None
@@ -18,7 +18,13 @@ class Lista_simple:
     def imprimir(self):
         actual = self.primero
         while actual:
-            print(actual.dato.codigo)
+            print(actual.dato.fila)
+            print(actual.dato.columna)
+            print(actual.dato.codigo_organismo)
             actual = actual.siguiente
 
-
+    def recorrer(self):
+        actual = self.primero
+        while actual:
+            yield actual.dato  
+            actual = actual.siguiente
