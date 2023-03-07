@@ -1,31 +1,7 @@
 
 digraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding="20">
 <TR>
-<TD bgcolor="gray2"> </TD>
 <TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-</TR>
-<TR>
-<TD bgcolor="gray2"> </TD>
-<TD bgcolor="gray2"> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-<TD> </TD>
-</TR>
-<TR>
-<TD bgcolor="gray2"> </TD>
 <TD> </TD>
 <TD> </TD>
 <TD> </TD>
@@ -37,7 +13,19 @@ digraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding
 <TD> </TD>
 </TR>
 <TR>
-<TD bgcolor="gray2"> </TD>
+<TD bgcolor="webmaroon"> </TD>
+<TD bgcolor="aqua"> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+</TR>
+<TR>
+<TD bgcolor="webmaroon"> </TD>
 <TD> </TD>
 <TD> </TD>
 <TD> </TD>
@@ -49,7 +37,7 @@ digraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding
 <TD> </TD>
 </TR>
 <TR>
-<TD> </TD>
+<TD bgcolor="webmaroon"> </TD>
 <TD> </TD>
 <TD> </TD>
 <TD> </TD>
@@ -109,6 +97,7 @@ digraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding
 <TD> </TD>
 </TR>
 <TR>
+<TD bgcolor="aqua"> </TD>
 <TD> </TD>
 <TD> </TD>
 <TD> </TD>
@@ -118,6 +107,17 @@ digraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding
 <TD> </TD>
 <TD> </TD>
 <TD> </TD>
-<TD bgcolor="gray2"> </TD>
+</TR>
+<TR>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD> </TD>
+<TD bgcolor="aqua"> </TD>
 </TR>
 </TABLE>>];}
