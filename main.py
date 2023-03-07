@@ -4,10 +4,12 @@ from objetos import*
 import os 
 import random
 
+
 lista_organismos = Lista_simple() # Creacion de una lista simple para organismos 
 lista_muestras = Lista_simple() # Creacion de una lista simple para las muestras
 lista_celdas_pintadas = Lista_simple() # Creacion de una lista simple para las celdas vivas
 lista_celda_pintadas_actualizadas = Lista_simple()
+lista_general = Lista_simple()
 
 fila_doctor = 0
 columna_doctor = 0
@@ -36,6 +38,7 @@ def app():
             colores = ['antiquewhite4','aqua','chartreuse1','blue','orangered','yellow','deepskyblue','darkorange1','darkslategray1','deeppink','fuchsia','cadetblue1','chartreuse2','cornsilk','gold','forestgreen','gray10','gray2','indianred1','indigo','ivory1','lime','lightsalmon1','lightblue3','lightskyblue','seagreen1','slateblue1','thistle1','turquoise','webmaroon','aqua']
             for muestra in lista_muestras.recorrer():
                 color = random.choice(colores)
+                muestra.color = color 
                 filas = muestra.filas
                 columnas = muestra.columnas
 
@@ -78,8 +81,12 @@ def app():
 
         elif opcion == 4:
             actualizar_tablero()
+            menu_principal()
         elif opcion == 5:
-            print('salir')
+            crear_xml()
+            menu_principal()
+        elif opcion == 6:
+            print('Programa, finalizado')
             break
 
 def cargar_archivo():
@@ -157,7 +164,10 @@ def pintar_tablero():
         os.startfile('grafica.png')
 
 
+
 def actualizar_tablero():
+    global lista_general
+    lista_general = Lista_simple()
     global fila_doctor
     global columna_doctor
     global color_doctor
@@ -174,7 +184,7 @@ def actualizar_tablero():
             celda_agregada = Celda(celda1.fila, celda1.columna, celda1.codigo_organismo)
             celda_agregada.color = color_doctor
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
-    
+
             while celdita != None:
                 pintar = False
                 print(celdita.color)
@@ -191,21 +201,378 @@ def actualizar_tablero():
                     pintar = True
                     print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
-                        lista_celdas_pintadas.insertar(c)
+                        lista_general.insertar(c)
                     break
     print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
-       
-    
-    pintar_tablero()
+    global lista_celdas_pintadas
+
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+            
+    lista_celdas_pintadas = lista_general
 
     celda2 = buscar_celda(fila_doctor-1,columna_doctor)
-    #celda3 = buscar_celda(fila_doctor-1,columna_doctor+1)
-    #celda4 = buscar_celda(fila_doctor,columna_doctor-1)
-    #celda5 = buscar_celda(fila_doctor,columna_doctor+1)
-    #celda6 = buscar_celda(fila_doctor+1,columna_doctor-1)
-    #celda7 = buscar_celda(fila_doctor+1,columna_doctor)
-    #celda8 = buscar_celda(fila_doctor+1,columna_doctor+1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda2 != None:
+        if celda2.color != color_doctor:
+            f = fila_doctor - 1
+            c = columna_doctor 
+            celdita = buscar_celda(f - 1, c)
+            celda_agregada = Celda(celda2.fila, celda2.columna, celda2.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f - 1
+                    c = c  
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f - 1, c)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+
+
+    celda3 = buscar_celda(fila_doctor+1,columna_doctor+1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda3 != None:
+        if celda3.color != color_doctor:
+            f = fila_doctor + 1
+            c = columna_doctor + 1
+            celdita = buscar_celda(f + 1, c + 1)
+            celda_agregada = Celda(celda3.fila, celda3.columna, celda3.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f + 1
+                    c = c + 1
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f +1, c + 1)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+
+
+    celda4 = buscar_celda(fila_doctor,columna_doctor-1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda4 != None:
+        if celda4.color != color_doctor:
+            f = fila_doctor 
+            c = columna_doctor - 1 
+            celdita = buscar_celda(f, c - 1)
+            celda_agregada = Celda(celda4.fila, celda4.columna, celda4.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f 
+                    c = c - 1 
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f, c - 1)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+    
+    
+    
+    celda5 = buscar_celda(fila_doctor,columna_doctor+1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda5 != None:
+        if celda5.color != color_doctor:
+            f = fila_doctor 
+            c = columna_doctor  + 1
+            celdita = buscar_celda(f , c + 1)
+            celda_agregada = Celda(celda5.fila, celda5.columna, celda5.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f 
+                    c = c + 1 
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f, c + 1)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+
+
+
+    celda6 = buscar_celda(fila_doctor+1,columna_doctor-1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda6 != None:
+        if celda6.color != color_doctor:
+            f = fila_doctor + 1
+            c = columna_doctor - 1
+            celdita = buscar_celda(f + 1, c - 1)
+            celda_agregada = Celda(celda6.fila, celda6.columna, celda6.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f + 1
+                    c = c  - 1
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f + 1, c - 1)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+
+
+    celda7 = buscar_celda(fila_doctor+1,columna_doctor)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda7 != None:
+        if celda7.color != color_doctor:
+            f = fila_doctor + 1
+            c = columna_doctor 
+            celdita = buscar_celda(f + 1, c)
+            celda_agregada = Celda(celda7.fila, celda7.columna, celda7.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f + 1
+                    c = c  
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f + 1, c)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    #if pintar == True:
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+
+    lista_celdas_pintadas = lista_general
+
+
+    celda8 = buscar_celda(fila_doctor+1,columna_doctor+1)
+    lista_general = Lista_simple()
+    nueva = Lista_simple()
+    lista_celdas_pintadas_actualizadas = nueva
+
+
+    pintar = False
+
+    if celda8 != None:
+        if celda8.color != color_doctor:
+            f = fila_doctor + 1
+            c = columna_doctor + 1
+            celdita = buscar_celda(f + 1, c + 1)
+            celda_agregada = Celda(celda8.fila, celda8.columna, celda8.codigo_organismo)
+            celda_agregada.color = color_doctor
+            lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+
+            while celdita != None:
+                pintar = False
+                print(celdita.color)
+                if celdita.color != color_doctor:
+                    print('Entro a celdita')
+                    f = f + 1
+                    c = c  + 1
+                    celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
+                    celda_agregada.color = color_doctor
+                    lista_celda_pintadas_actualizadas.insertar(celda_agregada)
+                    celdita = buscar_celda(f + 1, c + 1)
+
+                elif celdita.color == color_doctor:
+                    pintar = True
+                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    for c in lista_celda_pintadas_actualizadas.recorrer():
+                        lista_general.insertar(c)
+                    break
+    print('Pintaaaaarrrrrrr', pintar)
+    for x in lista_celdas_pintadas.recorrer():
+        x2 = buscar_celda_general(x.fila, x.columna)
+        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            pass
+        elif x2 == None:  
+            lista_general.insertar(x)
+        
+    lista_celdas_pintadas = lista_general
+
+    pintar_tablero()
+
+
+def pintar_tablero_actualizado():
+    with open('grafica.dot', 'w') as archivo:
+            archivo.write('\ndigraph G {a0 [shape=record label=<<TABLE border="3" cellspacing="3" cellpadding="20">')
+            for muestra in lista_muestras.recorrer():
+                filas = muestra.filas
+                columnas = muestra.columnas
+                for x in range(int(filas)):
+                    archivo.write('\n<TR>')
+                    for y in range(int(columnas)):
+                        celda_pintada = False
+                        for celda in lista_general.recorrer():
+                            if int(celda.fila) == x and int(celda.columna) == y:
+                                archivo.write('\n<TD bgcolor="{}"> </TD>'.format(celda.color))
+                                celda_pintada = True
+                                break
+                            else:
+                                celda_pintada = False
+                        if not celda_pintada:
+                            archivo.write('\n<TD> </TD>')
+                    archivo.write('\n</TR>')
+                break
+            archivo.write('\n</TABLE>>];}')
+            archivo.close()
+            os.system('dot.exe -Tpng grafica.dot -o grafica.png')
+            os.startfile('grafica.png')
 
 
 def buscar_celda(fila, columna):
@@ -215,21 +582,62 @@ def buscar_celda(fila, columna):
     return None
 
 
+def buscar_celda_general(fila, columna):
+    for celda in lista_general.recorrer():
+        if int(celda.fila) == fila and int(celda.columna) == columna:
+            return celda
+    return None
+
+def crear_xml():
+    global lista_organismos
+    global lista_muestras
+    global lista_celdas_pintadas
 
 
+    raiz = ET.Element('datosMarte')
+    listaOrganismos = ET.SubElement(raiz,'listaOrganismos')
+    for o in lista_organismos.recorrer():
+         organismo = ET.SubElement(listaOrganismos, 'organismo')
+         codigo = ET.SubElement(organismo, 'codigo')
+         codigo.text = o.codigo
+         nombre = ET.SubElement(organismo, 'nombre')
+         nombre.text = o.nombre
+    
+    listaMuestras = ET.SubElement(raiz, 'listaMuestras')
+    for m in lista_muestras.recorrer():
+        muestra = ET.SubElement(listaMuestras, 'muestra')
+        codigo = ET.SubElement(muestra, 'codigo')
+        codigo.text = m.codigo
+        descripcion = ET.SubElement(muestra, 'descripcion')
+        descripcion.text = m.descripcion
+        filas = ET.SubElement(muestra, 'filas')
+        filas.text = m.filas
+        columnas = ET.SubElement(muestra, 'columnas')
+        columnas.text = m.columnas
+        listadoCeldasVivas = ET.SubElement(muestra, 'listadoCeldasVivas')
+        for c in lista_celdas_pintadas.recorrer():
+            if c.color == m.color:
+                celdaViva = ET.SubElement(listadoCeldasVivas, 'celdaViva')
+                fila = ET.SubElement(celdaViva, 'fila')
+                fila.text = c.fila
+                columna = ET.SubElement(celdaViva, 'columna')
+                columna.text = c.columna
+                codigoOrganismo = ET.SubElement(celdaViva, 'codigoOrganismo')
+                codigoOrganismo.text = c.codigo_organismo
+    
+    data = ET.tostring(raiz)
+    archivo = open('xmlSalida.xml', 'wb')
+    archivo.write(data)
 
-    
-    
-    
 def menu_principal():
     print('╔═══════════════Menu Principal═══════════════╗')
     print('║    1. Ingrese el tamaño del tablero        ║')
     print('║    2. Cargar el archivo xml                ║')
     print('║    3. Realizar experimento                 ║')
     print('║    4. Actualizar tablero                   ║')
-    print('║    5. Salir                                ║')
+    print('║    5. Generar XML-Salida                   ║')
+    print('║    6. Salir                                ║')
     print('╚════════════════════════════════════════════╝')
-
 
 app()
 
