@@ -12,6 +12,7 @@ class Muestra():
         self.descripcion = descripcion
         self.filas = filas 
         self.columnas = columnas
+        self.color = None
         self.lista_celdas_vivas = Lista_simple()
 
 class Celda():
