@@ -173,7 +173,7 @@ def actualizar_tablero():
     global color_doctor
     global lista_celda_pintadas_actualizadas
 
-    pintar = False
+    pintar1 = False
 
     celda1 = buscar_celda(fila_doctor - 1,columna_doctor - 1)
     if celda1 != None:
@@ -186,10 +186,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar1 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f - 1
                     c = c - 1 
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -198,19 +198,19 @@ def actualizar_tablero():
                     celdita = buscar_celda(f - 1, c - 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar1 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     global lista_celdas_pintadas
 
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar1 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
             
@@ -221,8 +221,7 @@ def actualizar_tablero():
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar2 = False
 
     if celda2 != None:
         if celda2.color != color_doctor:
@@ -234,10 +233,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar2 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f - 1
                     c = c  
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -246,30 +245,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f - 1, c)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar2 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar2 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-
 
     celda3 = buscar_celda(fila_doctor+1,columna_doctor+1)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar3 = False
 
     if celda3 != None:
         if celda3.color != color_doctor:
@@ -281,10 +278,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar3 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f + 1
                     c = c + 1
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -293,30 +290,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f +1, c + 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar3 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar3 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-
 
     celda4 = buscar_celda(fila_doctor,columna_doctor-1)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar4 = False
 
     if celda4 != None:
         if celda4.color != color_doctor:
@@ -328,10 +323,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar4 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f 
                     c = c - 1 
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -340,31 +335,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f, c - 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar4 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar4 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-    
-    
-    
+        
     celda5 = buscar_celda(fila_doctor,columna_doctor+1)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar5 = False
 
     if celda5 != None:
         if celda5.color != color_doctor:
@@ -376,10 +368,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar5 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f 
                     c = c + 1 
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -388,31 +380,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f, c + 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar5 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar5 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+           continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-
-
 
     celda6 = buscar_celda(fila_doctor+1,columna_doctor-1)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar6 = False
 
     if celda6 != None:
         if celda6.color != color_doctor:
@@ -424,10 +413,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar6 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f + 1
                     c = c  - 1
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -436,30 +425,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f + 1, c - 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar6 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar6 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-
 
     celda7 = buscar_celda(fila_doctor+1,columna_doctor)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar7 = False
 
     if celda7 != None:
         if celda7.color != color_doctor:
@@ -471,10 +458,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar7 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f + 1
                     c = c  
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -483,30 +470,28 @@ def actualizar_tablero():
                     celdita = buscar_celda(f + 1, c)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar7 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     #if pintar == True:
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar7 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
 
     lista_celdas_pintadas = lista_general
-
 
     celda8 = buscar_celda(fila_doctor+1,columna_doctor+1)
     lista_general = Lista_simple()
     nueva = Lista_simple()
     lista_celdas_pintadas_actualizadas = nueva
 
-
-    pintar = False
+    pintar8 = False
 
     if celda8 != None:
         if celda8.color != color_doctor:
@@ -518,10 +503,10 @@ def actualizar_tablero():
             lista_celda_pintadas_actualizadas.insertar(celda_agregada)
 
             while celdita != None:
-                pintar = False
-                print(celdita.color)
+                pintar8 = False
+                #print(celdita.color)
                 if celdita.color != color_doctor:
-                    print('Entro a celdita')
+                    #print('Entro a celdita')
                     f = f + 1
                     c = c  + 1
                     celda_agregada = Celda(celdita.fila, celdita.columna, celdita.codigo_organismo)
@@ -530,23 +515,22 @@ def actualizar_tablero():
                     celdita = buscar_celda(f + 1, c + 1)
 
                 elif celdita.color == color_doctor:
-                    pintar = True
-                    print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
+                    pintar8 = True
+                    #print(celdita.color, 'Eliffffffffffffffffffffffffffffffffffffff')
                     for c in lista_celda_pintadas_actualizadas.recorrer():
                         lista_general.insertar(c)
                     break
-    print('Pintaaaaarrrrrrr', pintar)
+    #print('Pintaaaaarrrrrrr', pintar)
     for x in lista_celdas_pintadas.recorrer():
         x2 = buscar_celda_general(x.fila, x.columna)
-        if x2 == None and pintar == False and x.fila == fila_doctor and x.columna == columna_doctor:
-            pass
+        if x2 == None and pintar8 == False and x.fila == fila_doctor and x.columna == columna_doctor:
+            continue
         elif x2 == None:  
             lista_general.insertar(x)
         
     lista_celdas_pintadas = lista_general
 
     pintar_tablero()
-
 
 def pintar_tablero_actualizado():
     with open('grafica.dot', 'w') as archivo:
