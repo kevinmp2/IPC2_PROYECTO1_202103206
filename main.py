@@ -35,7 +35,7 @@ def app():
             
             cargar_archivo()
 
-            colores = ['antiquewhite4','aqua','chartreuse1','blue','orangered','yellow','deepskyblue','darkorange1','darkslategray1','deeppink','fuchsia','cadetblue1','chartreuse2','cornsilk','gold','forestgreen','gray10','gray2','indianred1','indigo','ivory1','lime','lightsalmon1','lightblue3','lightskyblue','seagreen1','slateblue1','thistle1','turquoise','webmaroon','aqua']
+            colores = ['blue4','aqua','chartreuse1','blue','orangered','yellow','deepskyblue','darkorange1','darkslategray1','deeppink','fuchsia','cadetblue1','chartreuse2','gold','forestgreen','gray10','gray2','indianred1','indigo','violet','gold','navy','red1','seagreen1','slateblue1','springgreen1','turquoise','webmaroon','aqua','darkorange','x11purple', 'webgreen', 'mediumblue', 'forestgreen', 'darkslategrey','dodgerblue', 'brown1', 'blue2', 'crimson', 'magenta1', 'mediumblue', 'mediumorchid4', 'mediumvioletred', 'olivedrab1', 'orangered1', 'cornflowerblue', 'darkcyan', 'crimson', 'darkviolet', 'firebrick', 'teal', 'sienna', 'lightseagreen', 'darkslategray', 'firebrick2']
             for muestra in lista_muestras.recorrer():
                 color = random.choice(colores)
                 muestra.color = color 
@@ -162,8 +162,6 @@ def pintar_tablero():
         archivo.close()
         os.system('dot.exe -Tpng grafica.dot -o grafica.png')
         os.startfile('grafica.png')
-
-
 
 def actualizar_tablero():
     global lista_general
